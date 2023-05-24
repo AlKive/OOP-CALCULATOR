@@ -42,4 +42,7 @@ class Calculator:
                             raise ValueError("UNSUPPORTED OPERATION")
             except ValueError:
                 raise ValueError("NUMBERS ONLY")   
-        #display the calculated results
+    #display the calculated results
+    def show_result(self):
+        self.result = float(self.result)
+        print("RESULT CALCULATED: " + str(self.result))
