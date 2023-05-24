@@ -1,6 +1,8 @@
 # BABIERA,ALEXA | CMPE-103-OBJECT-ORIENTED PROGRAMMING|BSCPE 1-5 | MAY 24,2023
 # Assignment 7 : Redo the Calculatir program applying the OOP concepts.
 
+from colorama import Back, Fore, Style, init
+import time
 #create Calculator Class
 class Calculator:
     #create functions;
@@ -9,10 +11,10 @@ class Calculator:
         while True:
             try:
                 #get number inputs
-                self.first_number =float(input("Enter your FIRST NUMBER:  " ))
-                self.second_number =float(input("Enter your SECOND NUMBER:  "))
+                self.first_number =float(input(Fore.YELLOW + "Enter your FIRST NUMBER:  " + Fore.LIGHTGREEN_EX))
+                self.second_number =float(input(Fore.YELLOW + "Enter your SECOND NUMBER:  " + Fore.LIGHTGREEN_EX))
                 #get arithmetic operation
-                self.operation = str(input("Choose an operation: \nIf add, enter '+',\nIf subtract,enter '-'\nIf multiply,enter '*'\nIf divide,enter '/' : "))   
+                self.operation = str(input(Fore.GREEN +"Choose an operation: \nIf add, enter '+' : \nIf subtract,enter '-' : \nIf multiply,enter '*' : \nIf divide,enter '/' : " + Fore.YELLOW))   
                 break
             except:
                 print("INVALID INPUT!!!\nPlease enter a valid values")
@@ -46,4 +48,4 @@ class Calculator:
         
     def show_result(self):
         self.result = float(self.result)
-        print("CALCULATED RESULT: " + str(self.result))
+        print(Fore.LIGHTRED_EX + "CALCULATED RESULT: " + Fore.LIGHTWHITE_EX +str(self.result))

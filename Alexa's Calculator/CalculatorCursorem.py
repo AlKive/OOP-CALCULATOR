@@ -10,4 +10,4 @@ while True:
     #calculate function
     calcu.Calculate()
     #show result function
-    calcu.show_result() 
+    calcu.show_result()
