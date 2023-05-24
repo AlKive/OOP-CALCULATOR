@@ -1,4 +1,6 @@
-#PSEUDOCODE
+# BABIERA,ALEXA | CMPE-103-OBJECT-ORIENTED PROGRAMMING|BSCPE 1-5 | MAY 24,2023
+# Assignment 7 : Redo the Calculatir program applying the OOP concepts.
+
 #create Calculator Class
 class Calculator:
     #create functions;
