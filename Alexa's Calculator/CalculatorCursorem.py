@@ -1,5 +1,4 @@
-#PSEUDOCODE
-
+'''This program will call and run the functions from the Calculator Class file.'''
 #import the class and object
 from CalculatorClass import Calculator
 #call Calculator
