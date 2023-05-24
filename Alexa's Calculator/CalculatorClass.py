@@ -7,7 +7,10 @@ import time
 from tkinter import *
 from tkinter import simpledialog
 from tkinter import messagebox
+
 ws = Tk()
+ws.geometry("700x350")
+
 
 #create Calculator Class
 class Calculator:
@@ -17,42 +20,38 @@ class Calculator:
         while True:
             try:
                 #get number inputs
-                self.first_number = simpledialog.askfloat("firstNumber", "Enter your FIRST NUMBER:  ", parent = ws)
-                self.second_number = simpledialog.askfloat("secondNumber", "Enter your SECOND NUMBER:  ", parent = ws)
+                self.first_number = simpledialog.askfloat("FIRST NUMBER", "Enter your FIRST NUMBER:  ", parent = ws)
+                self.second_number = simpledialog.askfloat("SECOND NUMBER", "Enter your SECOND NUMBER:  ", parent = ws)
+                if self.second_number == 0 :
+                    raise ZeroDivisionError(messagebox.showerror("ZERO DIVISION ERROR","[ERROR] Division by Zero is not allowed!"))
                 #get arithmetic operation
                 self.operation = simpledialog.askstring("Operation", "Choose an operation: \nIf add, enter '+' : \nIf subtract,enter '-' : \nIf multiply,enter '*' : \nIf divide,enter '/' : ", parent=ws)   
                 break
             except:
-                messagebox.showerror("INVALID INPUT!!!\nPlease enter a valid values", parent= ws)
+                messagebox.showerror("INVALID", "INVALID INPUT!!!\nPlease enter a valid values", parent= ws)
                 continue
             
     #calculate the inputs
     def Calculate(self) -> None:
-    # If one of the arguments is missing, throw an error
-        if (self.first_number and self.second_number and self.operation) == False:
-            raise NameError("You're missing an argument/s, check your inputs!")
-        try:
-            self.first_number = float(self.first_number)
-            self.second_number = float(self.second_number)
-            # choosing peferred operation
-            match self.operation:
-                    case '+':
-                        self.result = self.first_number + self.second_number
-                    case '-':
-                        self.result = self.first_number - self.second_number
-                    case '*':
-                        self.result = self.first_number * self.second_number
-                    case '/':
-                        try:
+            try:
+                self.first_number = float(self.first_number)
+                self.second_number = float(self.second_number)
+                # choosing peferred operation
+                match self.operation:
+                        case '+':
+                            self.result = self.first_number + self.second_number
+                        case '-':
+                            self.result = self.first_number - self.second_number
+                        case '*':
+                            self.result = self.first_number * self.second_number
+                        case '/':
                             self.result = self.first_number / self.second_number
-                        except ZeroDivisionError:
-                            raise ZeroDivisionError("[ERROR] Division by Zero is not allowed!")
-                    case _:
-                        raise ValueError("UNSUPPORTED OPERATION")
-        except ValueError:
-            messagebox.showerror("UNSUPPORTED CHARACTER/ELEMENT")   
+                        case _:
+                            raise ValueError("UNSUPPORTED OPERATION")
+            except ValueError:
+                messagebox.showerror("VALUE ERROR", "UNSUPPORTED CHARACTER/ELEMENT")   
         
     def show_result(self):
         self.result = float(self.result)
         time.sleep (2)
-        print(Fore.LIGHTRED_EX + "CALCULATED RESULT: " + Fore.LIGHTWHITE_EX +str(self.result))
+        messagebox.showinfo("RESULT", "CALCULATED RESULT: " + str(self.result))
