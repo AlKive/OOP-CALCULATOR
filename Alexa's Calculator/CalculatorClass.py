@@ -3,6 +3,12 @@
 
 from colorama import Back, Fore, Style, init
 import time
+
+from tkinter import *
+from tkinter import simpledialog
+from tkinter import messagebox
+ws = Tk()
+
 #create Calculator Class
 class Calculator:
     #create functions;
@@ -11,13 +17,13 @@ class Calculator:
         while True:
             try:
                 #get number inputs
-                self.first_number =float(input(Fore.YELLOW + "Enter your FIRST NUMBER:  " + Fore.LIGHTGREEN_EX))
-                self.second_number =float(input(Fore.YELLOW + "Enter your SECOND NUMBER:  " + Fore.LIGHTGREEN_EX))
+                self.first_number = simpledialog.askfloat("firstNumber", "Enter your FIRST NUMBER:  ", parent = ws)
+                self.second_number = simpledialog.askfloat("secondNumber", "Enter your SECOND NUMBER:  ", parent = ws)
                 #get arithmetic operation
-                self.operation = str(input(Fore.GREEN +"Choose an operation: \nIf add, enter '+' : \nIf subtract,enter '-' : \nIf multiply,enter '*' : \nIf divide,enter '/' : " + Fore.YELLOW))   
+                self.operation = simpledialog.askstring("Operation", "Choose an operation: \nIf add, enter '+' : \nIf subtract,enter '-' : \nIf multiply,enter '*' : \nIf divide,enter '/' : ", parent=ws)   
                 break
             except:
-                print("INVALID INPUT!!!\nPlease enter a valid values")
+                messagebox.showerror("INVALID INPUT!!!\nPlease enter a valid values", parent= ws)
                 continue
             
     #calculate the inputs
@@ -44,7 +50,7 @@ class Calculator:
                     case _:
                         raise ValueError("UNSUPPORTED OPERATION")
         except ValueError:
-            raise ValueError("UNSUPPORTED CHARACTER/ELEMENT")   
+            messagebox.showerror("UNSUPPORTED CHARACTER/ELEMENT")   
         
     def show_result(self):
         self.result = float(self.result)
