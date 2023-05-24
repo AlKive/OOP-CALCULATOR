@@ -54,4 +54,4 @@ class Calculator:
     def show_result(self):
         self.result = float(self.result)
         time.sleep (2)
-        messagebox.showinfo("RESULT", "CALCULATED RESULT: " + str(self.result))
+        messagebox.showinfo("RESULT", "CALCULATED RESULT: \n" + str(self.result))
