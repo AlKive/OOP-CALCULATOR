@@ -48,4 +48,5 @@ class Calculator:
         
     def show_result(self):
         self.result = float(self.result)
+        time.sleep (2)
         print(Fore.LIGHTRED_EX + "CALCULATED RESULT: " + Fore.LIGHTWHITE_EX +str(self.result))
