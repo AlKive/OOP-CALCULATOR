@@ -13,3 +13,7 @@ while True:
     calcu.Calculate()
     #show result function
     calcu.show_result()
+    alexa.user_inputs()
+    alexa.Calculate()
+    alexa.show_result()
+    
