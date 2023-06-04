@@ -1,8 +1,10 @@
 '''This program will call and run the functions from the Calculator Class file.'''
 #import the class and object
 from CalculatorClass import Calculator
+from CalculatorAlexa import Calculator_Alexa
 #call Calculator
 calcu = Calculator()
+alexa =Calculator_Alexa()
 #Call and Loop the functions of the object
 while True:
     #get input function
